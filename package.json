@@ -1,0 +1,51 @@
+{
+  "name": "app-migration",
+  "description": "A temporary landing page for the migration of V1 to V2.",
+  "version": "1.0.0",
+  "author": "Jackson <mail@dolmios.com>",
+  "bugs": {
+    "url": "https://github.com/cosmoau/app-migration/issues"
+  },
+  "dependencies": {
+    "@cosmoau/ui": "^1.9.22",
+    "@phosphor-icons/react": "2.1.5",
+    "@vercel/analytics": "^1.3.1",
+    "next": "^14.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@next/env": "^14.2.4",
+    "@types/node": "^20.14.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-dolmios": "^1.10.1",
+    "prettier": "^3.3.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "dolmios"
+    ]
+  },
+  "homepage": "https://github.com/cosmoau/app-migration#readme",
+  "license": "UNLICENSED",
+  "prettier": "eslint-config-dolmios/configs/prettier",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cosmoau/app-migration.git"
+  },
+  "scripts": {
+    "build": "next build",
+    "bump": "pnpm up -r && pnpm tidy && pnpm build",
+    "dev": "pnpm open && pnpm ip && next dev  --port 420",
+    "ip": "ipconfig getifaddr en0 && echo && echo",
+    "lint": "eslint . --ext js,jsx,ts,tsx,ts --fix ",
+    "open": "open http://localhost:420",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,json}' '!node_modules/**' '!.git/**' '!.next/**'",
+    "tidy": "pnpm lint && pnpm prettier",
+    "kill": "lsof -ti tcp:420 | xargs kill"
+  }
+}
